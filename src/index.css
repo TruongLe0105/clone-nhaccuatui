@@ -5,6 +5,7 @@ html {
   --width_bar: 20rem;
   --cl_primary: rgba(24, 34, 45, 1);
   --cl_text: rgba(244, 246, 248, 0.88);
+  --cl_hover: #2DAAED;
 }
 
 body {
@@ -14,7 +15,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: var(--cl_primary);
   color: var(--cl_text);
-  /* padding-left: 2rem; */
+  font-size: 14px;
 }
 
 *,

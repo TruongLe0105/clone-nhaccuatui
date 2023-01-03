@@ -1,38 +1,134 @@
-.App {
-  text-align: center;
+/* ## MAINBAR */
+.container-menu {
+  position: fixed;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  width: var(--width_bar);
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-right-color: rgba(244, 246, 248, 0.05);
+  z-index: 3;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header-bar {
+  height: 64px;
+  padding: 0 1.6rem;
+  /* background: red; */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.logo {
+  width: 4.8rem;
+  height: 2.4rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.package {
+  color: rgba(244, 246, 248, 0.5);
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 3px 14px;
 }
 
-.App-link {
-  color: #61dafb;
+.package:hover {
+  border: 1px solid var(--cl_hover);
+  color: var(--cl_hover);
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
+.wrapper-form {
+  width: inherit;
+  height: 56px;
+  background-color: rgba(244, 246, 248, 0.02);
+  padding-left: 16px;
+}
+
+.wrapper-form span:hover {
+  color: var(--cl_hover);
+}
+
+.setting-icon {
+  margin-left: 25px;
+  color: var(--cl_text);
+}
+
+.setting-icon:hover {
+  color: var(--cl_hover);
+}
+
+.item-menu {
+  padding: 4px 0;
+  padding-left: 1.6rem;
+  margin-bottom: 0.6rem;
+  cursor: pointer;
+  position: relative;
+}
+
+.item-menu:hover .border-hover {
+  background: linear-gradient(to right, #2daaed 0%, #2daaed 100%);
+  border-radius: 5px;
+  position: absolute;
+  left: 0;
+  height: 100%;
+  animation: scaleBorder 0.3s ease;
+}
+
+.item-menu .border-hover {
+  background: linear-gradient(to right, #2daaed 0%, #2daaed 100%);
+  border-radius: 5px;
+  position: absolute;
+  left: 0;
+  animation: noneScale 0.3s ease;
+}
+
+.border-menu {
+  height: 100%;
+  background: linear-gradient(to right, #2daaed 0%, #2daaed 100%);
+  border-radius: 5px;
+  position: absolute;
+  left: 0;
+}
+
+.discover-icon {
+  color: #FF9B2D;
+  font-size: 2.5rem !important;
+}
+
+.search-icon {
+  color: #00b509;
+  font-size: 2.5rem !important;
+}
+
+.home-icon {
+  color: #29D7FF;
+  font-size: 2.5rem !important;
+}
+
+.label-menu {
+  padding-left: 1rem;
+}
+
+.arrow-up {
+  font-size: 2rem !important;
+  margin-left: 52px;
+}
+
+
+@keyframes scaleBorder {
   from {
-    transform: rotate(0deg);
+    height: 10%;
   }
+
   to {
-    transform: rotate(360deg);
+    height: 100%;
+  }
+}
+
+@keyframes noneScale {
+  from {
+    height: 100%;
+  }
+
+  to {
+    height: 0%;
   }
 }

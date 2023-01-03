@@ -3,3 +3,44 @@
     align-items: center;
     justify-content: center;
 }
+
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.weight-500 {
+    font-weight: 500;
+}
+
+.radius-12 {
+    border-radius: 12px;
+}
+
+
+.border-main {
+    border: 1px solid rgba(244, 246, 248, 0.1);
+}
+
+.pointer {
+    cursor: pointer;
+}

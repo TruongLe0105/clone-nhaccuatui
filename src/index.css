@@ -15,7 +15,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: var(--cl_primary);
   color: var(--cl_text);
-  font-size: 14px;
+  font-size: 13px;
 }
 
 *,

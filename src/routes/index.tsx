@@ -1,5 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
+import { PATH } from '../helpers/constant';
 import MainLayout from '../layout/MainLayout';
 import HomePage from '../pages/HomePage';
 
@@ -8,6 +9,11 @@ const Router = () => {
         <Routes>
             <Route path="/" element={<MainLayout />} >
                 <Route index element={<HomePage />} />
+                <Route path={PATH.search} element={<HomePage />} />
+                <Route path={PATH.song} element={<HomePage />} />
+                <Route path={PATH.playlist} element={<HomePage />} />
+                <Route path={PATH.chart} element={<HomePage />} />
+                <Route path={PATH.orther} element={<HomePage />} />
             </Route>
         </Routes>
     )

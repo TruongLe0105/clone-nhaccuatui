@@ -44,3 +44,19 @@
 .pointer {
     cursor: pointer;
 }
+
+.fixed {
+    position: fixed;
+}
+
+.inset-0 {
+    inset: 0;
+}
+
+.z-999 {
+    z-index: 999;
+}
+
+.bg-fixed {
+    background-color: rgba(0, 0, 0, .5);
+}

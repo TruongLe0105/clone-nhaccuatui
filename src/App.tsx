@@ -5,6 +5,7 @@ import Router from './routes';
 
 import './App.css';
 import './custom.css';
+import 'animate.css';
 
 function App() {
   return (

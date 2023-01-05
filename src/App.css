@@ -125,14 +125,29 @@
 }
 
 .arrow-up {
-  font-size: 2rem !important;
+  font-size: 2.2rem !important;
   margin-left: 12px;
+  transition: transform .3s !important;
+}
+
+.rotate-arrow {
+  transform: rotate(180deg);
 }
 
 .childrens-item-menu {
   color: rgba(244, 246, 248, 0.5);
   font-weight: 100;
   cursor: pointer;
+  height: 0px;
+  transition: height 0.5s ease;
+}
+
+.show-childs-second {
+  height: 11.5rem;
+}
+
+.show-childs-third {
+  height: 8.5rem;
 }
 
 .children-item {
@@ -174,18 +189,19 @@
   background-color: rgba(24, 34, 45, 1);
   border-radius: 4px;
   position: relative;
+  letter-spacing: 0.5px;
 }
 
 .header-form {
   font-size: 1.8rem;
   font-weight: 700;
-  padding: 2.5rem 0;
+  padding: 1.8rem 0;
   border-bottom: 1px solid rgba(244, 246, 248, 0.05);
   width: 100%;
 }
 
 .form-submit {
-  padding: 2rem 3rem 0 3rem;
+  padding: 2rem 6rem 0 6rem;
 }
 
 .input-default {
@@ -193,7 +209,7 @@
   border: 1px solid rgba(244, 246, 248, 0.05);
   background-color: rgb(0, 0, 0, .02);
   color: rgba(244, 246, 248, 0.88);
-  margin: 3px 0;
+  margin: 4px 0;
 }
 
 .wrapper-icon {
@@ -221,6 +237,22 @@
   color: rgba(244, 246, 248, 0.88);
 }
 
+.wrapper-checkbox {
+  width: max-content;
+  margin-top: 1.2rem;
+}
+
+.checkbox-input {
+  width: auto;
+  background: transparent;
+  border: 1px solid rgba(244, 246, 248, 0.05);
+  margin-right: 1rem;
+}
+
+.text-remember {
+  font-size: 1.6rem;
+}
+
 input::placeholder {
   color: rgba(244, 246, 248, 0.5);
 }
@@ -233,13 +265,42 @@ input::placeholder {
   color: white;
   font-weight: 600;
   font-size: 1.5rem;
-  margin: 2rem 0;
+  margin: 2.5rem 0;
   cursor: pointer;
 }
 
-.wrapper-checkbox {
-  position: relative;
-  left: -1rem;
+.social-login {
+  background-color: rgba(244, 246, 248, 0.02);
+  padding: 2rem 0;
+  width: 100%;
+  font-size: 1.4rem;
+  line-height: 20px;
+}
+
+.social-icon {
+  width: 5rem !important;
+  height: 5rem !important;
+  padding: 1rem;
+  background-color: rgba(244, 246, 248, 0.05);
+  border: beige;
+  border-radius: 50%;
+  margin-left: 1rem;
+}
+
+.footer-login {
+  padding: 3rem 0;
+  line-height: 16px;
+  font-size: 1.4rem;
+  font-weight: 100;
+}
+
+.switch-form {
+  color: var(--cl_hover);
+  margin-left: 3px;
+}
+
+.switch-form:hover {
+  text-decoration: underline;
 }
 
 @keyframes scaleBorder {

@@ -1,14 +1,26 @@
+import { FC } from "react";
 import { InputType } from "./types";
 
-const InputDefault = (props: InputType) => {
-    const { name, type, placeholder } = props;
+const InputDefault: FC<InputType> = (props) => {
+    const {
+        name,
+        type,
+        placeholder,
+        inputClass,
+        value,
+        checked,
+        ...ortherProps
+    } = props;
 
     return (
         <input
             name={name}
             type={type}
             placeholder={placeholder}
-            className='input'
+            className={inputClass ? inputClass : 'input'}
+            value={value}
+            checked={checked}
+            {...ortherProps}
         />
     )
 }

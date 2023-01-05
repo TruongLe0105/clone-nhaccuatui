@@ -1,6 +1,9 @@
+import { FC } from "react";
+import { FormRegister } from "../types";
 
 
-const RegisterForm = () => {
+const RegisterForm: FC<FormRegister> = (props) => {
+    const { onClose } = props;
 
     return (
         <div></div>

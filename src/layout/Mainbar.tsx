@@ -1,20 +1,30 @@
 import { useState, useEffect } from 'react';
 import SettingsIcon from '@mui/icons-material/Settings';
-import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 import { PATH } from '../helpers/constant';
 import { ItemMenu, listMenu } from './types';
 import { images } from '../helpers/images';
 import LoginForm from '../components/forms/LoginForm';
+import RegisterForm from '../components/forms/RegisterForm';
 
 const Mainbar = () => {
     const [active, setActive] = useState<number>(2);
     const [rendered, setRendered] = useState(false);
+    const [openFormLogin, setOpenFormLogin] = useState(false);
+    const [openFormRegister, setOpenFormRegister] = useState(false);
 
     const { logo } = images;
 
     const handleMenuPage = (item: ItemMenu, index: number) => {
         setActive(index);
+        if (item.childrens) {
+            const childNode = document.getElementById(`child${index}`);
+            const arrowNode = document.getElementById(`arrow-expand-${index}`);
+
+            arrowNode?.classList.toggle('rotate-arrow');
+            index === 2 ? childNode?.classList.toggle('show-childs-second') : childNode?.classList.toggle('show-childs-third');
+        }
     };
 
     const renderIconMenu = (item: ItemMenu) => {
@@ -57,18 +67,26 @@ const Mainbar = () => {
             </div>
             <div className='flex align-center wrapper-form'>
                 <div className='flex weight-500'>
-                    <span className='pointer'>Đăng nhập</span>
+                    <span
+                        onClick={() => setOpenFormLogin(true)}
+                        className='pointer'
+                    >Đăng nhập</span>
                     <div style={{ margin: '0 3px', fontSize: '110%', fontWeight: 0 }}>|</div>
-                    <span className='pointer'>Đăng ký</span>
+                    <span
+                        onClick={() => setOpenFormRegister(true)}
+                        className='pointer'
+                    >Đăng ký</span>
                 </div>
                 <SettingsIcon className='pointer setting-icon' />
             </div>
             {listMenu.map((item: ItemMenu, index) => (
-                <div key={index}>
+                <div
+                    key={index}
+                    className='ovl-hidden'
+                >
                     <div
                         onClick={() => handleMenuPage(item, index)}
                         className='flex align-center item-menu'
-                        // key={index}
                         style={{
                             background: active === index ? 'rgba(244,246,248,0.05)' : '',
                         }}
@@ -84,13 +102,17 @@ const Mainbar = () => {
                         <span className='label-menu'>
                             {item.label}
                         </span>
-                        <ExpandLessIcon
+                        <KeyboardArrowDownIcon
+                            id={`arrow-expand-${index}`}
                             className='arrow-up'
                             style={{ display: item.childrens ? 'block' : 'none' }}
                         />
                     </div>
                     {item.childrens && (
-                        <div className='childrens-item-menu'>
+                        <div
+                            id={`child${index}`}
+                            className='childrens-item-menu'
+                        >
                             {item.childrens.map((item: string, index: number) => (
                                 <div className='flex align-center children-item' key={index}>
                                     <div className='doc-symbol' />
@@ -104,9 +126,21 @@ const Mainbar = () => {
             <div>
                 <div className='chat-bot' />
             </div>
-            <div className='flex-center fixed inset-0 z-999 bg-fixed'>
-                <LoginForm />
-            </div>
+            {openFormLogin &&
+                <div className='flex-center fixed inset-0 z-999 bg-fixed'>
+                    <LoginForm
+                        onClose={() => setOpenFormLogin(false)}
+                        onSwitch={() => setOpenFormRegister(true)}
+                    />
+                </div>
+            }
+            {openFormRegister &&
+                <div className='flex-center fixed inset-0 z-999 bg-fixed'>
+                    <RegisterForm
+                        onClose={() => setOpenFormLogin(false)}
+                    />
+                </div>
+            }
         </div>
     )
 }

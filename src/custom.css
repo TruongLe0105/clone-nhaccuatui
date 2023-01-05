@@ -60,3 +60,7 @@
 .bg-fixed {
     background-color: rgba(0, 0, 0, .5);
 }
+
+.ovl-hidden {
+    overflow: hidden;
+}

@@ -127,7 +127,7 @@ const Mainbar = () => {
                 <div className='chat-bot' />
             </div>
             {openFormLogin &&
-                <div className='flex-center fixed inset-0 z-999 bg-fixed'>
+                <div className='flex-center fixed inset-0 z-9 bg-fixed'>
                     <LoginForm
                         onClose={() => setOpenFormLogin(false)}
                         onSwitch={() => setOpenFormRegister(true)}
@@ -135,9 +135,10 @@ const Mainbar = () => {
                 </div>
             }
             {openFormRegister &&
-                <div className='flex-center fixed inset-0 z-999 bg-fixed'>
+                <div className='flex-center fixed inset-0 z-9 bg-fixed'>
                     <RegisterForm
-                        onClose={() => setOpenFormLogin(false)}
+                        onClose={() => setOpenFormRegister(false)}
+                        onSwitch={() => setOpenFormLogin(true)}
                     />
                 </div>
             }

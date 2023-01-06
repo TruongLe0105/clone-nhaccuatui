@@ -1,10 +1,6 @@
-export interface FormLogin {
+export interface FormType {
     onClose: () => void;
     onSwitch: () => void;
-}
-
-export interface FormRegister {
-    onClose: () => void;
 }
 
 export interface InputType

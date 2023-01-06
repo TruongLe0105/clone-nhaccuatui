@@ -57,10 +57,30 @@
     z-index: 999;
 }
 
+.z-9 {
+    z-index: 999;
+}
+
 .bg-fixed {
     background-color: rgba(0, 0, 0, .5);
 }
 
+.bg-fixed-new {
+    background-color: rgba(0, 0, 0, 1);
+}
+
 .ovl-hidden {
     overflow: hidden;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.upper-text {
+    text-transform: uppercase;
+}
+
+.cl-hover {
+    color: var(--cl_hover);
 }

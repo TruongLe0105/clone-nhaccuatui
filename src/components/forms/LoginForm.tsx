@@ -8,13 +8,13 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import GoogleIcon from '@mui/icons-material/Google';
 
 import ButtonDefault from '../ButtonDefault';
-import { FormLogin } from '../types';
+import { FormType } from '../types';
 
-const LoginForm: FC<FormLogin> = (props) => {
+const LoginForm: FC<FormType> = (props) => {
     const { onClose, onSwitch } = props;
 
     const [formInput, setFormInput] = useState({
-        userName: '',
+        username: '',
         password: ''
     });
 
@@ -32,7 +32,7 @@ const LoginForm: FC<FormLogin> = (props) => {
     };
 
     const handleChangeInput =
-        (key: 'userName' | 'password') =>
+        (key: 'username' | 'password') =>
             (event: React.ChangeEvent<HTMLInputElement>) => {
                 setFormInput({
                     ...formInput,
@@ -47,7 +47,7 @@ const LoginForm: FC<FormLogin> = (props) => {
         }, 400)
     };
 
-    const switchRegisterForm = () => {
+    const switchForm = () => {
         loginRef?.current?.classList.add('animate__zoomOutLeft');
         setTimeout(() => {
             onClose();
@@ -67,11 +67,11 @@ const LoginForm: FC<FormLogin> = (props) => {
                         <PersonIcon className='icon-form' />
                     </div>
                     <InputDefault
-                        name='userName'
+                        name='username'
                         type='text'
                         placeholder='Nhập tên đăng nhập'
-                        onChange={handleChangeInput('userName')}
-                        value={formInput.userName}
+                        onChange={handleChangeInput('username')}
+                        value={formInput.username}
                     />
                 </div>
                 <div className='flex align-center input-default'>
@@ -110,7 +110,7 @@ const LoginForm: FC<FormLogin> = (props) => {
             </div>
             <div className='flex-center footer-login'>
                 <span>Bạn chưa có tài khoản NCT ID? </span>
-                <span onClick={switchRegisterForm} className='pointer switch-form'>Đăng ký ngay</span>
+                <span onClick={switchForm} className='pointer switch-form'>Đăng ký ngay</span>
             </div>
         </div >
     )

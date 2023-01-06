@@ -16,6 +16,7 @@ body {
   background: var(--cl_primary);
   color: var(--cl_text);
   font-size: 13px;
+  user-select: none;
 }
 
 *,

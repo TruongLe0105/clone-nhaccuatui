@@ -3,9 +3,12 @@ import { BrowserRouter } from 'react-router-dom';
 
 import Router from './routes';
 
+import 'animate.css';
+import "swiper/css";
+import "swiper/css/pagination";
+
 import './App.css';
 import './custom.css';
-import 'animate.css';
 
 function App() {
   return (

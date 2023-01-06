@@ -9,7 +9,9 @@ const MainLayout: FC = () => {
         <div>
             {/* <MainHeader /> */}
             <Mainbar />
-            <Outlet />
+            <div className='container-page'>
+                <Outlet />
+            </div>
         </div>
     )
 }

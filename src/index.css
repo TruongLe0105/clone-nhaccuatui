@@ -6,6 +6,9 @@ html {
   --cl_primary: rgba(24, 34, 45, 1);
   --cl_text: rgba(244, 246, 248, 0.88);
   --cl_hover: #2DAAED;
+  --cl_blur: rgba(244, 246, 248, 0.2);
+  --bg_input: rgba(244, 246, 248, 0.02);
+  --cl_border: rgba(244, 246, 248, 0.05);
 }
 
 body {
@@ -15,7 +18,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: var(--cl_primary);
   color: var(--cl_text);
-  font-size: 13px;
+  font-size: 14px;
   user-select: none;
 }
 
@@ -23,4 +26,8 @@ body {
 *::after,
 *::before {
   box-sizing: border-box;
+}
+
+.container-page {
+  margin-left: var(--width_bar);
 }

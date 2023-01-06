@@ -84,3 +84,7 @@
 .cl-hover {
     color: var(--cl_hover);
 }
+
+.relative {
+    position: relative;
+}

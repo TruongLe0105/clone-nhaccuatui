@@ -1,17 +1,19 @@
 import { FC } from "react";
-import MainHeader from "./MainHeader";
 import { Outlet } from 'react-router-dom';
 import Mainbar from "./Mainbar";
+import MainFooter from "./MainFooter";
+import Subbar from "./Subbar";
 
 const MainLayout: FC = () => {
 
     return (
         <div>
-            {/* <MainHeader /> */}
             <Mainbar />
             <div className='container-page'>
                 <Outlet />
+                <MainFooter />
             </div>
+            <Subbar />
         </div>
     )
 }

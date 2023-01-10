@@ -8,7 +8,7 @@ const TopKeySearch = () => {
             <h2>Top Từ Khóa</h2>
             <div className='flex wrapper-hashtag'>
                 {keywords.map((key, index) => (
-                    <div className='flex align-center justify-between hashtag'>
+                    <div key={index} className='flex align-center justify-between hashtag'>
                         <span className='title-hashtag'>#{index + 1}</span>
                         <span>{key}</span>
                     </div>

@@ -1,3 +1,4 @@
+
 export const validateForm = (username: string) => {
     var res = /^[a-zA-Z0-9_\.]+$/.exec(username);;
     const valid = !!res;

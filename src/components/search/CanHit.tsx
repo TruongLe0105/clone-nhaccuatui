@@ -1,9 +1,7 @@
 import { useState } from 'react';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import NotStartedIcon from '@mui/icons-material/NotStarted';
-import AttachFileIcon from '@mui/icons-material/AttachFile';
-import MusicNoteIcon from '@mui/icons-material/MusicNote';
+import MoreOptions from '../MoreOptions';
 
 const CanHit = () => {
     const [showOption, setShowOption] = useState(false);
@@ -26,20 +24,10 @@ const CanHit = () => {
                     <div className='special'>SPECIAL</div>
                     {
                         showOption && (
-                            <div className='wrapper-options'>
-                                <div className='flex align-center option'>
-                                    <NotStartedIcon className='icon-options' />
-                                    <span>Thêm vào chờ phát</span>
-                                </div>
-                                <div className='flex align-center option'>
-                                    <AttachFileIcon className='icon-options' />
-                                    <span>Sao chép link</span>
-                                </div>
-                                <div className='flex align-center option'>
-                                    <MusicNoteIcon className='icon-options' />
-                                    <span>Đi đến bài hát</span>
-                                </div>
-                            </div>
+                            <MoreOptions
+                                showOption={showOption}
+                                setShowOption={setShowOption}
+                            />
                         )
                     }
                 </div>

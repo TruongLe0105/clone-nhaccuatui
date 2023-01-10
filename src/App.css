@@ -389,8 +389,59 @@ input::placeholder {
   top: 0;
   width: var(--width_subbar);
   border-left: 1px solid var(--cl_border);
-  z-index: 3;
+  z-index: 100;
   background: rgba(255, 255, 255, 0.02);
+  padding: 2.4rem;
+}
+
+.subbar-mini {
+  display: none;
+}
+
+.header-subbar {
+  width: 24rem;
+  text-align: center;
+  color: var(--cl_text);
+}
+
+.header-subbar span {
+  font-size: 14px;
+  line-height: 18px;
+  margin-top: 4rem;
+  padding: 0 1rem 2.4rem 1rem;
+}
+
+.music-4u {
+  width: 100%;
+  border-radius: 4px;
+  box-shadow: 0 8px 16px rgb(0 0 0 / 20%);
+}
+
+.btn-subbar {
+  border: 1px solid var(--cl_border);
+  border-radius: 1.6rem;
+  background: transparent;
+  color: var(--cl_icon);
+  padding: .8rem 3.7rem;
+  width: fit-content;
+}
+
+
+.btn-subbar:hover {
+  border: 1px solid var(--cl_hover);
+  color: var(--cl_hover);
+}
+
+.footer-subbar img {
+  border-radius: 0.4rem;
+  width: 6.4rem;
+  height: 6.4rem;
+  cursor: pointer;
+}
+
+.content-footer-subbar {
+  margin-left: 1rem;
+  color: var(--cl_icon);
 }
 
 /* MAIN FOOTER */
@@ -707,12 +758,21 @@ input::placeholder {
   width: max-content;
 }
 
+.option-minibar {
+  position: absolute;
+  left: 0%;
+  bottom: 50%;
+  z-index: 10;
+  background: rgb(24, 34, 45);
+  width: max-content;
+}
+
 .option {
   padding: 0.7rem 1rem;
 }
 
 .option:hover {
-  background: var(--cl_input);
+  background: var(--bg_input);
 }
 
 .option span {
@@ -776,5 +836,53 @@ input::placeholder {
 
   to {
     height: 0%;
+  }
+}
+
+
+@media screen and (max-width: 1260px) {
+  .container-subbar {
+    transform: translateX(100%);
+    transition: transform .3s linear;
+    width: 32rem;
+    background: rgba(24, 34, 45, 1);
+  }
+
+  .subbar-mini {
+    display: block;
+    position: fixed;
+    z-index: 10;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--cl_primary);
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    box-shadow: 0 4px 8px rgb(0 0 0 / 20%);
+    width: 16rem;
+    border: 1px solid var(--cl_hover);
+  }
+
+  .title-minibar {
+    padding: 1rem;
+  }
+
+  .icon-group-minibar {
+    background: var(--bg_input);
+  }
+
+  .icon-minibar {
+    font-size: 2.2rem !important;
+    color: var(--cl_icon);
+    margin: 5px;
+    cursor: pointer;
+  }
+
+  .icon-minibar:hover {
+    color: var(--cl_hover);
+  }
+
+  .line-minibar {
+    border: 1px solid var(--cl_border);
+    height: 2rem;
   }
 }

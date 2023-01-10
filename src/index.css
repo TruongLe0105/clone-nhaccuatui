@@ -38,6 +38,11 @@ h2 {
 
 a {
   text-decoration: none;
+  color: var(--cl_icon);
+}
+
+a:hover {
+  color: var(--cl_hover);
 }
 
 ul {
@@ -47,8 +52,9 @@ ul {
 .container-page {
   margin-left: var(--width_mainbar);
   margin-right: var(--width_subbar);
-  background: var(--cl_body);
+  /* background: var(--cl_body); */
 }
+
 
 @media screen and (max-width: 1260px) {
   html {

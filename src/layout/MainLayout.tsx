@@ -7,7 +7,7 @@ import Subbar from "./Subbar";
 const MainLayout: FC = () => {
 
     return (
-        <div>
+        <div style={{ background: 'var(--cl_body)' }}>
             <Mainbar />
             <div className='container-page'>
                 <Outlet />

@@ -1,47 +1,35 @@
 import { useRef, useState, useEffect } from 'react';
+
 import PauseIcon from '@mui/icons-material/Pause';
 import SkipNextIcon from '@mui/icons-material/SkipNext';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import MoreOptions from '../components/MoreOptions';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 
-import MoreOptions from '../components/MoreOptions';
-import { clickInside } from '../hooks/useClickInside';
 
 const Subbar = () => {
-    const [openOption, setOpenOption] = useState(false);
-    const [render, setRender] = useState(false);
-    const [isOpen, setIsOpen] = useState(false);
-
-    const barRef = useRef<any>();
-    const minibarRef = useRef<any>();
-    const open = localStorage.getItem('open');
-
-    const openBar = () => {
-        barRef.current.style.transform = 'translateX(0)';
-        // setIsOpen(true);
-        localStorage.setItem('open', 'true');
-    };
-
-    const hideBar = () => {
-        console.log('hide')
-        barRef.current.style.transform = 'translateX(100%)';
-        localStorage.removeItem('open');
-    }
-
     const widthDevice = window.innerWidth;
+    const barRef = useRef<any>();
+
+
+    const [openOption, setOpenOption] = useState(false);
+    const minibarRef = useRef<any>();
+
+    const openBar = (event: any) => {
+        event.stopPropagation();
+        event.preventDefault();
+        barRef.current.style.transform = 'translateX(0)';
+    };
 
     useEffect(() => {
         if (widthDevice > 1260) return;
-        console.log(open)
         document.addEventListener('click', (event: any) => {
             event.stopPropagation();
-            if (!open) return;
-            if (barRef.current.contains(event.target)) return;
-            hideBar();
+            if (barRef?.current?.contains(event.target)) return;
+            barRef.current.style.transform = 'translateX(100%)';
         })
-    }, [widthDevice, barRef, open]);
-    console.log('render')
+    }, [widthDevice, barRef]);
 
     return (
         <>
@@ -58,7 +46,7 @@ const Subbar = () => {
                 <div className='flex align-center footer-subbar'>
                     <img
                         src='	
-                https://stc-id.nixcdn.com/v12/static/media/default_song.dc43e7f4.png'
+        https://stc-id.nixcdn.com/v12/static/media/default_song.dc43e7f4.png'
                         alt=''
                     />
                     <div className='flex flex-col content-footer-subbar'>

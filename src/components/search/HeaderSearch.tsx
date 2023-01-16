@@ -45,7 +45,7 @@ const HeaderSearch = () => {
                     slidesPerView={1}
                 >
                     {list.map((item, index) => (
-                        <SwiperSlide key={index} className='flex align-center justify-between swiper-slide'>
+                        <SwiperSlide key={index} className='flex align-center justify-between'>
                             <div style={{
                                 color: 'var(--cl_hover)'
                             }}>

@@ -715,6 +715,20 @@ input::placeholder {
   padding: .2rem 1rem;
 }
 
+.time-card {
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  bottom: 0;
+  height: 16px;
+  line-height: 16px;
+  padding-left: 14px;
+  padding-right: 2px;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.88);
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6));
+}
+
 .icon-play:hover {
   transform: scale(1.2);
 }
@@ -760,16 +774,36 @@ input::placeholder {
   z-index: 100;
   background: rgb(24, 34, 45);
   width: max-content;
-  /* color: var(--cl_icon); */
+  border-radius: 4px;
 }
 
 .option-minibar {
   position: absolute;
   left: 0%;
   bottom: 50%;
-  z-index: 10;
+  z-index: 100;
   background: rgb(24, 34, 45);
   width: max-content;
+  border-radius: 4px;
+}
+
+.option-chart {
+  position: absolute;
+  right: 6rem;
+  top: 1rem;
+  z-index: 100;
+  background: rgb(24, 34, 45);
+  width: max-content;
+  border-radius: 4px;
+}
+
+.bg-second-option {
+  position: absolute;
+  inset: 0;
+  padding: 0px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  z-index: -1;
 }
 
 .option {
@@ -778,11 +812,12 @@ input::placeholder {
 
 .option:hover {
   background: var(--bg_input);
+  cursor: pointer;
 }
 
 .option span {
   margin-left: 1rem;
-  /* color: white; */
+  color: var(--cl_text);
 }
 
 .icon-options {
@@ -913,7 +948,6 @@ input::placeholder {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  padding: 4px 0;
   color: var(--cl_text);
 }
 
@@ -1057,7 +1091,6 @@ input::placeholder {
 
 .bg-first-chart {
   position: absolute;
-  z-index: 1;
   top: 0;
   width: 100%;
   height: 100%;
@@ -1067,7 +1100,7 @@ input::placeholder {
 
 .bg-second-chart {
   position: absolute;
-  z-index: 1;
+  /* z-index: 1; */
   top: 0;
   width: 100%;
   height: 100%;
@@ -1083,14 +1116,18 @@ input::placeholder {
 }
 
 .icon-play-chart:hover {
-  background: var(--cl_body);
+  background: var(--cl_border);
 }
 
 .charts-realtime {
   position: relative;
   z-index: 10;
-  margin: 0 3rem;
+  /* padding: 0 3rem; */
 }
+
+/* .recharts-surface {
+  width: 800;
+} */
 
 .heading-chart {
   position: relative;
@@ -1115,7 +1152,6 @@ input::placeholder {
 
 .card-realtime {
   position: relative;
-  z-index: 10;
   padding: .5rem 2rem;
   margin: 2px 2rem;
   background: var(--cl_body);
@@ -1123,7 +1159,12 @@ input::placeholder {
   color: var(--cl_icon);
 }
 
-.card-realtime:hover {
+.bg-card-chart {
+  position: absolute;
+  inset: 0;
+}
+
+.bg-card-chart:hover {
   background: var(--cl_border);
 }
 
@@ -1149,6 +1190,7 @@ input::placeholder {
   width: 4rem;
   height: 4rem;
   background: transparent;
+  z-index: 10;
 }
 
 .icon-more-chart:hover {
@@ -1171,6 +1213,118 @@ input::placeholder {
 .btn-chart:hover {
   border: 1px solid var(--cl_hover);
   color: var(--cl_hover);
+}
+
+/* RANK TABLE */
+.container-rank {
+  padding: var(--title_comp);
+}
+
+.card-rank {
+  width: 31%;
+  padding-bottom: 3rem;
+  background: var(--bg_input);
+  position: relative;
+}
+
+.header-rank {
+  width: 100%;
+  height: 160px;
+  border-radius: 4px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+}
+
+.header-rank span {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  color: white;
+  width: 100%;
+  margin: auto;
+  padding-top: 3rem;
+}
+
+.wrapper-img-rank {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 4px;
+  position: absolute;
+  left: 2.5rem;
+  bottom: -1.5rem;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.wrapper-img-rank img {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+}
+
+.wrapper-img-rank:nth-child(2) {
+  left: 6.5rem;
+  z-index: 9;
+}
+
+.wrapper-img-rank:nth-child(2):hover {
+  z-index: 10;
+}
+
+.wrapper-img-rank:nth-child(3) {
+  left: auto;
+  right: 2.5rem;
+  z-index: 8;
+}
+
+.wrapper-img-rank:nth-child(3):hover {
+  z-index: 10;
+}
+
+.wrapper-img-rank:hover .bg-dark {
+  background: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  border-radius: inherit;
+}
+
+.wrapper-img-rank:hover .icon-play {
+  font-size: 1rem;
+  padding: 5px 7px;
+  display: block !important;
+}
+
+.number-rank {
+  position: absolute;
+  top: 192px;
+  right: 33px;
+  font-size: 56px;
+  font-weight: 700;
+  color: rgba(244, 246, 248, 0.05);
+}
+
+/* VIDEO HOT */
+.wrapper-video {
+  flex-wrap: wrap;
+}
+
+.wrapper-video .wrapper-card-video {
+  width: 23.5%;
+  height: 16rem;
+}
+
+.wrapper-video .wrapper-card-video:nth-child(1),
+.wrapper-card-video:nth-child(2) {
+  width: 49%;
+  height: max-content;
+  margin-bottom: 1rem;
+}
+
+.card-video {
+  width: 100%;
+  height: 70%;
 }
 
 @keyframes scaleBullet {
@@ -1253,5 +1407,15 @@ input::placeholder {
   /* BANNERHOME */
   .swiper-banner {
     height: calc(calc(100vw - (var(--width_mainbar))) * 2 / 5);
+  }
+
+  .charts-realtime {
+    width: 572px !important;
+  }
+
+  .recharts-surface {
+    width: 572px;
+    font-size: 1.2rem;
+    /* margin: 0 1rem; */
   }
 }

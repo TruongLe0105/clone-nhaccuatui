@@ -61,7 +61,7 @@ const CardList: FC<CardListProp> = (props) => {
                                     item={el}
                                     classCard='card-spring'
                                 />
-                                <a title={el.title} href='' className='name-song'>
+                                <a title={el.title} href='' className='name-song' style={{ padding: '4px 0' }}>
                                     {el.title}
                                 </a>
                             </div>
@@ -77,7 +77,7 @@ const CardList: FC<CardListProp> = (props) => {
                                     item={el}
                                     classCard='card-spring'
                                 />
-                                <a title={el.title} href='' className='name-song'>
+                                <a title={el.title} href='' className='name-song' style={{ padding: '4px 0' }}>
                                     {el.title}
                                 </a>
                             </div>

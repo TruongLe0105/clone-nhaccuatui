@@ -3,7 +3,7 @@ import { useState } from 'react';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import MoreOptions from './MoreOptions';
 
-const CardItemMain = ({ isPlayList, item, classCard }: any) => {
+const CardItemMain = ({ isPlayList, item, classCard, time }: any) => {
     const [showOption, setShowOption] = useState(false);
 
     return (
@@ -21,6 +21,7 @@ const CardItemMain = ({ isPlayList, item, classCard }: any) => {
                     className='pointer icon-more' />
             </div>
             {!isPlayList && <div className='special'>SPECIAL</div>}
+            {time && <div className='time-card'>{time}</div>}
             {
                 showOption && (
                     <MoreOptions

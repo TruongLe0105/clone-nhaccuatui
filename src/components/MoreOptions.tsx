@@ -56,6 +56,7 @@ const MoreOptions: FC<OptionsCard> = (props) => {
     return (
         <div ref={optionRef} className={classOption ? `animate__animated animate__zoomIn ${classOption}` : 'animate__animated animate__zoomIn wrapper-options'}>
             {renderOption()}
+            <div className='bg-second-option' />
         </div>
     )
 }

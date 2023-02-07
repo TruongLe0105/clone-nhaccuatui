@@ -1,24 +1,25 @@
 import { useState } from 'react';
 
 import { Button } from "../components/button";
+import { LinkSingers, LinkSong } from '../components/Link';
 
 const topVN = [
     {
         top: 1,
         title: 'Quả Phụ Tướng',
-        singer: ['Dung Hoàng Phạm'],
+        singers: ['Dung Hoàng Phạm'],
         img: 'https://avatar-ex-swe.nixcdn.com/song/2022/12/28/a/4/7/d/1672195948068_300.jpg',
     },
     {
         top: 2,
         title: 'Để tôi ôm em bằng giai điệu này',
-        singer: ['Kai Đinh, MIN, GRAY D'],
+        singers: ['Kai Đinh, MIN, GRAY D'],
         img: 'https://avatar-ex-swe.nixcdn.com/song/2022/12/15/0/3/9/2/1671119733875_300.jpg',
     },
     {
         top: 3,
         title: 'Ngủ Một Mình (Tình Rất Tình)',
-        singer: ['HIEUTHUHAI', 'Negav', 'Kewtiie'],
+        singers: ['HIEUTHUHAI', 'Negav', 'Kewtiie'],
         img: 'https://avatar-ex-swe.nixcdn.com/song/2022/12/12/2/8/0/d/1670833179694_300.jpg',
     },
 ]
@@ -27,19 +28,19 @@ const topUS_UK = [
     {
         top: 1,
         title: 'Dreamers (Music From The FIFA World Cup Qatar 2022 Official Soundtrack)',
-        singer: ['Jung Kook (BTS)', 'FIFA Sound'],
+        singers: ['Jung Kook (BTS)', 'FIFA Sound'],
         img: 'https://avatar-ex-swe.nixcdn.com/song/2022/11/20/d/8/8/7/1668950510671_300.jpg',
     },
     {
         top: 2,
         title: 'Pano',
-        singer: ['Zack Tabudlo'],
+        singers: ['Zack Tabudlo'],
         img: 'https://avatar-ex-swe.nixcdn.com/song/2022/12/29/e/e/f/b/1672296333770_300.jpg',
     },
     {
         top: 3,
         title: 'golden hour',
-        singer: ['JVKE#'],
+        singers: ['JVKE#'],
         img: 'https://avatar-ex-swe.nixcdn.com/song/2022/12/13/a/f/7/3/1670903992722_300.jpg',
     },
 ]
@@ -48,19 +49,19 @@ const topKorean = [
     {
         top: 1,
         title: 'OMG',
-        singer: ['NewJeans'],
+        singers: ['NewJeans'],
         img: 'https://avatar-ex-swe.nixcdn.com/song/2023/01/03/5/6/a/9/1672714168763_300.jpg',
     },
     {
         top: 2,
         title: 'Ditto',
-        singer: ['NewJeans'],
+        singers: ['NewJeans'],
         img: 'https://avatar-ex-swe.nixcdn.com/song/2022/12/20/9/d/c/4/1671497656255_300.jpg',
     },
     {
         top: 3,
         title: 'Shut Down',
-        singer: ['BLACKPINK'],
+        singers: ['BLACKPINK'],
         img: 'https://avatar-ex-swe.nixcdn.com/song/2022/09/16/0/2/1/c/1663301881856_300.jpg',
     },
 ]
@@ -95,13 +96,8 @@ const RankTable = () => {
                     </div>
                 </div>
                 <div style={{ padding: '3rem 2.5rem 0 2.5rem' }}>
-                    <a href='' title={currentInfo.title} className='name-song' style={{ fontSize: '1.6rem' }}>{currentInfo.title}</a>
-                    <div className='name-song '>
-                        {currentInfo.singer.map((el: any, index: number) => (
-                            <a href='' title={el} key={index} className='singer-release'>{el}</a>
-                        ))}
-                    </div>
-                </div>
+                    <LinkSong el={currentInfo} index={currentIndex} />
+                    <LinkSingers el={currentInfo.singers} index={currentIndex} />                </div>
                 <div className='number-rank'>#{currentIndex + 1}</div>
                 <Button title='Xem tất cả' />
             </div>

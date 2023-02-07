@@ -7,7 +7,7 @@ const CanHit = () => {
         <div>
             <h2 style={{ padding: 'var(--title_comp)' }}>Có Thể Hit</h2>
             <div className='flex wrapper-can-hit'>
-                <CardItemMain />
+                <CardItemMain fullOptions={true} />
                 <div className='flex flex-col content-can-hit'>
                     <div>
                         <span>Bài hát: </span>

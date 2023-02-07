@@ -5,7 +5,6 @@ html {
   --width_mainbar: 20rem;
   --width_subbar: 32rem;
   --cl_primary: rgba(24, 34, 45, 1);
-  --cl_body: rgba(244, 246, 248, 0.02);
   --cl_text: rgba(244, 246, 248, 0.88);
   --cl_hover: #2DAAED;
   --cl_blur: rgba(244, 246, 248, 0.2);
@@ -53,7 +52,6 @@ ul {
 .container-page {
   margin-left: var(--width_mainbar);
   margin-right: var(--width_subbar);
-  /* background: var(--cl_body); */
 }
 
 

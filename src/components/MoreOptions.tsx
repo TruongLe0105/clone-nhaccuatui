@@ -6,7 +6,7 @@ import { clickInside } from '../hooks/useClickInside';
 import { OptionsCard } from '../types';
 
 const MoreOptions: FC<OptionsCard> = (props) => {
-    const { classOption, showOption, setShowOption, isPlayList } = props;
+    const { classOption, showOption, setShowOption, fullOptions } = props;
 
     const optionRef = useRef<any>();
     const [render, setRender] = useState(false);
@@ -26,7 +26,7 @@ const MoreOptions: FC<OptionsCard> = (props) => {
     }, [optionRef, render, showOption]);
 
     const renderOption = () => {
-        if (isPlayList) {
+        if (!fullOptions) {
             return (
                 <div className='flex align-center option'>
                     <AttachFileIcon className='icon-options' />
@@ -54,7 +54,11 @@ const MoreOptions: FC<OptionsCard> = (props) => {
     }
 
     return (
-        <div ref={optionRef} className={classOption ? `animate__animated animate__zoomIn ${classOption}` : 'animate__animated animate__zoomIn wrapper-options'}>
+        <div
+            style={{ zIndex: 999 }}
+            ref={optionRef}
+            className={classOption ? `animate__animated animate__zoomIn ${classOption}` : 'animate__animated animate__zoomIn wrapper-options'}
+        >
             {renderOption()}
             <div className='bg-second-option' />
         </div>

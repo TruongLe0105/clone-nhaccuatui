@@ -1,27 +1,49 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 const NewRelease = ({ data }: any) => {
     const [currentItem, setCurrentItem] = useState(data[0]);
     const { img, title, singer, img_singer, day_release } = currentItem;
+    const [active, setActive] = useState(0);
 
     const arrowRef = useRef<any>();
+    const listCardRef = useRef<any>();
 
     const handleHoverCard = (event: any, item: any, index: number) => {
+        console.log('here')
         const arrowNode: any = document.getElementById('arrow-release');
         const clientX = event.target.getBoundingClientRect().left;
         const halfWidth = event.target.clientWidth / 2;
         const clientArrow = clientX + halfWidth;
 
         if (arrowNode) {
-            arrowNode.style.left = `${clientArrow - 232}px`;
+            arrowNode.style.left = `${clientArrow - 200}px`;
         }
         setCurrentItem(item);
+        setActive(index);
     };
 
+    useEffect(() => {
+        const arrowNode: any = document.getElementById('arrow-release');
+        const currentClientX = listCardRef.current.getBoundingClientRect().left;
+        arrowNode.style.left = `${currentClientX + 40 - 200}px`;
+
+        // setTimeout(() => {
+        //     if (active === data.length - 1) {
+        //         setActive(0);
+        //     } else {
+        //         setActive(active + 1);
+        //     }
+        //     setCurrentItem(data[active + 1]);
+        // }, 2000)
+
+    }, [])
+
+
     return (
-        <div className='new-release'>
-            <h2 style={{ padding: 'var(--title_comp)' }}>Mới Phát Hành</h2>
-            <div className='flex banner-release'>
+        <div className='flex-center flex-col'>
+            <h2 style={{ padding: 'var(--title_comp)', textAlign: 'left', width: '100%' }}>Mới Phát Hành</h2>
+            <div className='flex relative banner-release'>
+                <div className='arrow-release' id='arrow-release' ref={arrowRef} />
                 <div className='represent-img' >
                     <img src={img} alt='' />
                 </div>
@@ -45,14 +67,15 @@ const NewRelease = ({ data }: any) => {
                     </div>
                 </div>
             </div>
-            <div className='flex justify-between relative list-new-release'>
+            <div ref={listCardRef} className='flex justify-between relative list-new-release'>
                 {data.map((item: any, index: number) => (
                     <div
+                        id={`card-${index}`}
                         key={index}
                         className='song-can-hit relative card-new-release'
                         onMouseEnter={(event) => handleHoverCard(event, item, index)}
                     >
-                        <div className='flex-center box-second'>
+                        <div className={`flex-center ${active === index ? 'box-second' : ''}`}>
                             <div className='overflow-black' />
                             <img
                                 src={item ? item.img : 'https://avatar-ex-swe.nixcdn.com/song/2022/08/31/6/3/7/9/1661926660620_300.jpg'}
@@ -61,7 +84,6 @@ const NewRelease = ({ data }: any) => {
                             />
                             <i className='fa-solid fa-play icon-play icon-play-release'></i>
                         </div>
-                        <div className='arrow-release' id='arrow-release' ref={arrowRef} />
                     </div>
                 ))}
             </div>

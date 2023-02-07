@@ -3,7 +3,7 @@ import { useState } from 'react';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import MoreOptions from './MoreOptions';
 
-const CardItemMain = ({ isPlayList, item, classCard, time }: any) => {
+const CardItemMain = ({ isPlayList, item, classCard, time, fullOptions }: any) => {
     const [showOption, setShowOption] = useState(false);
 
     return (
@@ -27,7 +27,7 @@ const CardItemMain = ({ isPlayList, item, classCard, time }: any) => {
                     <MoreOptions
                         showOption={showOption}
                         setShowOption={setShowOption}
-                        isPlayList={isPlayList}
+                        fullOptions={fullOptions}
                     />
                 )
             }

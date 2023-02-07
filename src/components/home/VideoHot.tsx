@@ -2,6 +2,7 @@
 
 import React from 'react';
 import CardItemMain from '../CardItemMain';
+import { LinkSingers, LinkSong } from '../Link';
 
 const data = [
     {
@@ -45,7 +46,7 @@ const data = [
 const VideoHot = () => {
     return (
         <div style={{ padding: 'var(--title_comp)' }}>
-            <h2>VideoHot</h2>
+            <h2>Video Hot</h2>
             <div className='flex align-centern justify-between wrapper-video'>
                 {data.map((item: any, index: number) => (
                     <div key={index} className='wrapper-card-video'>
@@ -56,12 +57,8 @@ const VideoHot = () => {
                             time={item.time}
                         />
                         <div style={{ padding: '4px 0' }}>
-                            <a href='' title={item.title} className='name-song'>{item.title}</a>
-                            <div className='name-song'>
-                                {item.singers.map((el: any, index: number) => (
-                                    <a key={index} href='' title={el} className='singer-release'>{el}</a>
-                                ))}
-                            </div>
+                            <LinkSong el={item} index={index} />
+                            <LinkSingers el={item.singers} index={index} />
                         </div>
                     </div>
                 ))}

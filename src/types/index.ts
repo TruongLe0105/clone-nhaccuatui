@@ -5,6 +5,7 @@ export interface OptionsCard {
     setShowOption: any;
     classOption?: string;
     isPlayList?: boolean;
+    fullOptions?: boolean;
 }
 
 export interface CardListProp {

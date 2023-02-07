@@ -2,6 +2,7 @@ import React from 'react';
 import CardList from '../components/CardList';
 
 import BannerHome from '../components/home/BannerHome';
+import HotTopic from '../components/home/HotTopic';
 import NCTRealtime from '../components/home/NCTRealtime';
 import NewRelease from '../components/home/NewRelease';
 import Song from '../components/home/Song';
@@ -11,6 +12,7 @@ import { springData } from '../jsons/muaxuanoi';
 
 import { welcomeSpring } from '../jsons/nonnaodonxuan';
 import { hitData } from '../jsons/odaycohit';
+import { topData } from '../jsons/top100';
 import RankTable from './RankTable';
 
 const HomePage = () => {
@@ -40,6 +42,12 @@ const HomePage = () => {
             <RankTable />
             <VideoHot />
             <Song />
+            <HotTopic />
+            <CardList
+                title='Top 100'
+                data={topData}
+                comp='hundred'
+            />
         </div>
     )
 }

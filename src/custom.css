@@ -92,3 +92,7 @@
 .relative {
     position: relative;
 }
+
+.wrap {
+    flex-wrap: wrap;
+}

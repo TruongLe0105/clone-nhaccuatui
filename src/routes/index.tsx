@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { PATH } from '../helpers/constant';
 import MainLayout from '../layout/MainLayout';
+import DiscoverSong from '../pages/discover/NewSongPage';
 import HomePage from '../pages/HomePage';
 import SearchPage from '../pages/search/SearchPage';
 
@@ -11,7 +12,7 @@ const Router = () => {
             <Route path="/" element={<MainLayout />} >
                 <Route index element={<HomePage />} />
                 <Route path={PATH.search} element={<SearchPage />} />
-                <Route path={PATH.song} element={<HomePage />} />
+                <Route path={PATH.song} element={<DiscoverSong />} />
                 <Route path={PATH.playlist} element={<HomePage />} />
                 <Route path={PATH.chart} element={<HomePage />} />
                 <Route path={PATH.orther} element={<HomePage />} />

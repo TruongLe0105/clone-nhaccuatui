@@ -17,3 +17,9 @@ export interface buttonType {
     title: string;
     buttonClass?: any;
 }
+
+export interface Pagination {
+    count?: any;
+    limit?: any;
+    page?: any;
+}

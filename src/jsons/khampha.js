@@ -1,4 +1,4 @@
-export const discover = [
+export const data = [
     {
         title: "Mong Một Ngày Anh Nhớ Đến Em",
         singer: ["Huỳnh James", "Pjnboys"],

@@ -5,7 +5,7 @@ import { Autoplay } from 'swiper';
 
 const HeaderSearch = () => {
 
-    const list = ['tyga', 'hieu thu 2', 'truong thu 1', 'clq gi v', 'dit me tuyet voi', 'superman', 'ironman', 'cai gi the!', 'wonder woman', 'doctor teach'];
+    const list = ['Hana Cẩm Tiên', 'UMIE', 'O.lew (Việt Nam)', 'Khoa (Nguyễn Khoa)', 'Maser', 'Dung Hoàng Phạm', 'Lê Dương Bảo Lâm', '9C Media', 'Teayang', 'Freaky'];
 
     const TrendingArtist = () => {
 

@@ -45,8 +45,8 @@ const HeaderDetail = () => {
                         <h3>Tuần Mới Nhạc Mới</h3>
                     </div>
                     <div className='flex'>
-                        <img src='https://avatar-ex-swe.nixcdn.com/singer/avatar/2020/08/18/e/4/e/c/1597723219000_300.jpg' alt='img' />
-                        <span>V.A</span>
+                        <img className='pointer' src='https://avatar-ex-swe.nixcdn.com/singer/avatar/2020/08/18/e/4/e/c/1597723219000_300.jpg' alt='img' />
+                        <a href=''>V.A</a>
                     </div>
                     <span style={{ marginTop: '1rem' }}>14/12/2022</span>
                     <p>Hãy cùng Nhaccuatui cập nhật tất tần tật ngay những ca khúc mới nhất vừa được phát hành trong thời gian này nhé!</p>
@@ -88,9 +88,6 @@ const HeaderDetail = () => {
                             {(show && active === index) && <HiddenContentMain content={el.title} />}
                         </div>
                     ))}
-                    {/* <i className="fa-solid fa-cloud-arrow-down"></i>
-                    <i className="fa-solid fa-download"></i>
-                    <i className="fa-solid fa-share-nodes"></i> */}
                 </div>
             </div>
         </div>

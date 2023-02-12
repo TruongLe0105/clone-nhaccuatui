@@ -96,3 +96,7 @@
 .wrap {
     flex-wrap: wrap;
 }
+
+.cl-blur {
+    color: var(--cl_icon);
+}

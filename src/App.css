@@ -1810,6 +1810,10 @@ input::placeholder {
   border-bottom: 1px solid var(--cl_border);
 }
 
+.header-collection .collection-item {
+  max-width: 24%;
+}
+
 .header-collection h3 {
   text-transform: uppercase;
   color: var(--cl_text);
@@ -1837,6 +1841,31 @@ input::placeholder {
 .collections {
   display: grid;
   grid-template-columns: auto auto auto auto;
+}
+
+.more-collection {
+  background: var(--cl_primary);
+  border-radius: 4px;
+  position: absolute;
+  top: 90%;
+  z-index: 10;
+  padding: 1.5rem 2rem;
+  display: grid;
+  grid-template-columns: 23% 23% 23% 23%;
+  width: 55rem;
+  column-gap: 2.66%;
+}
+
+.more-collection>div {
+  margin: .3rem 1.5rem .3rem 0;
+}
+
+.scene-collection {
+  left: 30%;
+}
+
+.orther-collection {
+  right: 10%;
 }
 
 /* CAN YOU LIKE */

@@ -1,4 +1,3 @@
-import { useState } from 'react';
 
 const DefaultTabs = ({
     data,
@@ -6,7 +5,6 @@ const DefaultTabs = ({
     setCurrentTab,
     setActiveTabInside,
 }: any) => {
-    // const [active, setActive] = useState(0);
 
     const handleClickTab = (index: number) => {
         setCurrentTab(index);

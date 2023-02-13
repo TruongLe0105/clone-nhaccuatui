@@ -15,6 +15,7 @@ const icons = [
         title: 'Chia sẻ'
     }
 ]
+
 const HeaderDetail = () => {
     const [hover, setHover] = useState(false);
     const [show, setShow] = useState(false);

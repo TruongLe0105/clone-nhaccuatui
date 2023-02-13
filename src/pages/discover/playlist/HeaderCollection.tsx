@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 import { categories, mood, scene, topic } from '../../../jsons/collection';
 
@@ -12,13 +12,14 @@ const HeaderCollection = () => {
     const MoreCollection = () => {
 
         return (
-            <div className={
-                showMore.title === 'Khung cảnh' ?
-                    ` more-collection scene-collection` :
-                    showMore.title === 'Chủ đề' ?
-                        ' more-collection orther-collection' :
-                        ' more-collection'
-            }
+            <div
+                className={
+                    showMore.title === 'Khung cảnh' ?
+                        ` more-collection scene-collection` :
+                        showMore.title === 'Chủ đề' ?
+                            ' more-collection orther-collection' :
+                            ' more-collection'
+                }
             >
                 {showMore?.data?.slice(5,).map((el: string, index: number) => (
                     <div key={index} className='flex align-center'>
@@ -47,17 +48,17 @@ const HeaderCollection = () => {
                 <h3>{collection}</h3>
                 <div className='flex flex-col'>
                     {data.slice(0, 5).map((el: string, index: number) => (
-                        <div key={index} style={{ marginBottom: '5px' }} className='flex align-center'>
+                        <div key={index} style={{ marginBottom: '5px' }} className='pointer flex align-center'>
                             <i className="fa-solid fa-angle-right"></i>
-                            <a className='pointer name-song cl-blur' title={el}>{el}</a>
+                            <a className='name-song cl-blur' title={el}>{el}</a>
                         </div>
                     ))}
                     <div
                         onClick={() => handleClickMore(collection, data)}
-                        className='flex align-center'
+                        className='pointer flex align-center'
                     >
                         <i className="fa-solid fa-angle-right"></i>
-                        <a className='pointer'>Xem thêm...</a>
+                        <a>Xem thêm...</a>
                     </div>
                 </div>
             </div >

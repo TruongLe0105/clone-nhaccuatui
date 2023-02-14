@@ -1,8 +1,13 @@
 import { useState } from 'react';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+
 import ButtonDefault from '../../components/ButtonDefault';
+import { DownIcon, ShareIcon } from '../../components/CustomIcon';
 
 import DefaultTabs from '../../components/discover/DefaultTabs';
-import { HiddenContentMain } from '../../components/HiddenContent';
+import { LinkSingers } from '../../components/Link';
+import MoreOptions from '../../components/MoreOptions';
+import { data } from '../../jsons/top';
 
 const MainTabs = ['Việt Nam', 'Âu Mỹ', 'Châu Á', 'Không Lời'];
 const VNTabs = ['Nhạc Trẻ', 'Trữ Tình', 'Rap Việt', 'Tiền Chiến', 'Nhạc Trịnh', 'Rap Việt', 'Remix Việt'];
@@ -10,22 +15,11 @@ const USUKTabs = ['Pop', 'Electronica/Dance', 'R&B/Hip Hop/Rap', 'Blues/Jazz', '
 const AsiaTabs = ['Nhạc Hàn', 'Nhạc Hoa', 'Nhạc Nhật'];
 const InstrumentalTabs = ['Không Lời'];
 
-const icons = [
-    {
-        icon: <i className="fa-solid fa-download"></i>,
-        title: 'Tải về'
-    },
-    {
-        icon: <i className="fa-solid fa-share-nodes"></i>,
-        title: 'Chia sẻ'
-    }
-]
-
 const RankHundredPage = () => {
     const [currentTab, setCurrentTab] = useState(0);
     const [activeTabInside, setActiveTabInside] = useState<number>(0);
-    const [show, setShow] = useState(false);
-    const [active, setActive] = useState<any>();
+    const [showOptions, setShowOption] = useState(false);
+    const [activeIndex, setActiveIndex] = useState(0);
 
     const handleClickTabInside = (tab: string, index: number) => {
         setActiveTabInside(index);
@@ -48,7 +42,7 @@ const RankHundredPage = () => {
         )
     }
 
-    const renderContent = () => {
+    const renderTabs = () => {
         switch (currentTab) {
             case 0: return (
                 <Tabs data={VNTabs} />
@@ -70,32 +64,54 @@ const RankHundredPage = () => {
     };
 
     const BannerRank = () => {
+        const iconStyle = { color: 'white' };
+
         return (
-            <div>
+            <div className='flex align-center justify-between banner-rank'>
                 <div className='flex flex-col justify-center'>
-                    <span>TOP 100</span>
-                    <span>KHÔNG LỜI - Cập nhật vào: 13/02/2023</span>
+                    <span style={{ fontSize: '3rem', fontWeight: 'bold' }} >TOP 100</span>
+                    <span style={{ color: 'var(--cl_icon)' }}>KHÔNG LỜI - Cập nhật vào: 13/02/2023</span>
                 </div>
                 <div className='flex align-center'>
-                    <ButtonDefault title='Phát tất cả' />
-                    {icons.map((el: any, index: number) => (
-                        <div
-                            key={index}
-                            onMouseEnter={() => {
-                                setShow(true)
-                                setActive(index)
-                            }}
-                            onMouseLeave={() => {
-                                setShow(false)
-                                setActive(-1)
-                            }}
-                            style={{ position: 'relative' }}
-                        >
-                            {el.icon}
-                            {(show && active === index) && <HiddenContentMain content={el.title} />}
-                        </div>
-                    ))}
+                    <ButtonDefault title='Phát tất cả' buttonClass='pointer button-rank' />
+                    <DownIcon iconStyle={iconStyle} />
+                    <ShareIcon iconStyle={iconStyle} />
                 </div>
+            </div>
+        )
+    };
+
+    const RenderContent = () => {
+
+        return (
+            <div style={{ margin: '2rem 0 5rem 0' }}>
+                {data.map((el: any, index: number) => (
+                    <div key={index} className='flex align-center wrapper-item-rank'>
+                        <span className='flex-center'>{index + 1}</span>
+                        <div className='flex align-center relative item-rank'>
+                            <img src={el.img} alt={el.song} />
+                            <div>
+                                <a title={el.title} className='name-song' style={{ color: 'white' }}>{el.title}</a>
+                                <LinkSingers el={el.singers} />
+                            </div>
+                            <MoreVertIcon
+                                onClick={() => {
+                                    setShowOption(true)
+                                    setActiveIndex(index)
+                                }}
+                                className={(showOptions && activeIndex === index) ? 'pointer icon-more icon-more-rank' : 'pointer icon-more'}
+                            />
+                        </div>
+                        {(showOptions && activeIndex === index) && (
+                            <MoreOptions
+                                showOption={showOptions}
+                                setShowOption={setShowOption}
+                                fullOptions={true}
+                                classOption='options-song'
+                            />
+                        )}
+                    </div>
+                ))}
             </div>
         )
     }
@@ -108,8 +124,9 @@ const RankHundredPage = () => {
                 setCurrentTab={setCurrentTab}
                 setActiveTabInside={setActiveTabInside}
             />
-            {renderContent()}
+            {renderTabs()}
             <BannerRank />
+            <RenderContent />
         </div>
     )
 }

@@ -44,7 +44,6 @@ const Song = () => {
                                 <MoreOptions
                                     showOption={showOption}
                                     setShowOption={setShowOption}
-                                    isPlayList={false}
                                     classOption='options-song'
                                 />
                             )

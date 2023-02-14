@@ -36,6 +36,10 @@
     font-weight: 500;
 }
 
+.bold {
+    font-weight: bold;
+}
+
 .radius-12 {
     border-radius: 12px;
 }

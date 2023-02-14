@@ -1,29 +1,14 @@
 import { useState } from 'react'
-import { HiddenContent, HiddenContentMain } from '../../../components/HiddenContent'
-
-const icons = [
-    {
-        icon: <i className="fa-solid fa-cloud-arrow-down"></i>,
-        title: 'Thêm vào cloud'
-    },
-    {
-        icon: <i className="fa-solid fa-download"></i>,
-        title: 'Tải về'
-    },
-    {
-        icon: <i className="fa-solid fa-share-nodes"></i>,
-        title: 'Chia sẻ'
-    }
-]
+import { AddCloudIcon, DownIcon, ShareIcon } from '../../../components/CustomIcon';
+import { HiddenContent } from '../../../components/HiddenContent'
 
 const HeaderDetail = () => {
     const [hover, setHover] = useState(false);
-    const [show, setShow] = useState(false);
-    const [active, setActive] = useState<any>();
 
     const keywords = [
         'Nhạc Trẻ', 'Remix Việt', 'Rap Việt', 'Indie Việt', 'Nhạc Hot Tháng', 'Top 100', 'Tình Yêu'
-    ]
+    ];
+
     return (
         <div>
             <div className='flex algn-center'>
@@ -72,23 +57,9 @@ const HeaderDetail = () => {
                     </div>
                 </div>
                 <div className='flex align-center'>
-                    {icons.map((el: any, index: number) => (
-                        <div
-                            key={index}
-                            onMouseEnter={() => {
-                                setShow(true)
-                                setActive(index)
-                            }}
-                            onMouseLeave={() => {
-                                setShow(false)
-                                setActive(-1)
-                            }}
-                            style={{ position: 'relative' }}
-                        >
-                            {el.icon}
-                            {(show && active === index) && <HiddenContentMain content={el.title} />}
-                        </div>
-                    ))}
+                    <AddCloudIcon />
+                    <DownIcon />
+                    <ShareIcon />
                 </div>
             </div>
         </div>

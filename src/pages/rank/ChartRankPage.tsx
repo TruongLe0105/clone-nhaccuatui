@@ -1,10 +1,43 @@
 import { useState } from 'react';
+import ButtonDefault from '../../components/ButtonDefault';
+import { DownIcon, ShareIcon } from '../../components/CustomIcon';
 
 import DefaultTabs from '../../components/discover/DefaultTabs';
 import { LinkSingers } from '../../components/Link';
+import { data } from '../../jsons/topSong';
+import CardRank from './CardRank';
 
 const tabs = ['BXH TUẦN', 'REALTIME'];
 const subTabs = ['Việt Nam', 'Âu Mỹ', 'Hàn Quốc'];
+
+export const HistoryRank = () => {
+    return (
+
+        <div className='flex' >
+            <div className='flex flex-col' style={{ width: '33%' }}>
+                <span
+                    className='bold'
+                    style={{ color: 'orange', fontSize: '2rem', marginBottom: '4px' }}
+                >-</span>
+                <span style={{ color: 'var(--cl_icon)' }}>TUẦN TRƯỚC</span>
+            </div>
+            <div className='flex flex-col' style={{ width: '33%' }}>
+                <span
+                    className='bold'
+                    style={{ color: 'blue', fontSize: '2rem', marginBottom: '4px' }}
+                >1</span>
+                <span style={{ color: 'var(--cl_icon)' }}>CAO NHẤT</span>
+            </div>
+            <div className='flex flex-col' style={{ width: '33%' }}>
+                <span
+                    className='bold'
+                    style={{ color: 'green', fontSize: '2rem', marginBottom: '4px' }}
+                >1</span>
+                <span style={{ color: 'var(--cl_icon)' }}>TUẦN TRONG BXH</span>
+            </div>
+        </div>
+    )
+}
 
 const ChartRankPage = () => {
     const [currentTab, setCurrentTab] = useState(0);
@@ -59,7 +92,7 @@ const ChartRankPage = () => {
                     <img src='https://avatar-ex-swe.nixcdn.com/song/2023/02/09/3/c/3/5/1675911903909_300.jpg' alt='img' />
                     <span className=''>Top1</span>
                 </div>
-                <div className='flex'>
+                <div className='flex flex-col w-100'>
                     <div className='relative content-banner-chart'>
                         <span>Bài hát <span>Luôn Yêu Đời</span></span>
                         <div style={{ marginTop: '1rem' }}>
@@ -73,8 +106,42 @@ const ChartRankPage = () => {
                                 <LinkSingers el={['Đen', 'Cheng']} />
                             </div>
                         </div>
+                    </div >
+                    <HistoryRank />
+                </div >
+            </div >
+        )
+    };
+
+    const RenderRankChart = () => {
+
+        return (
+            <div className='content-rank-chart'>
+                <div
+                    className='flex align-center justify-between'
+                    style={{
+                        background: 'var(--bg_input)',
+                        padding: '.5rem 2rem',
+                        borderRadius: '4px'
+                    }}
+                >
+                    <ButtonDefault
+                        title='Phát tất cả'
+                        buttonClass='pointer button-rank'
+                    />
+                    <div className='flex align-center'>
+                        <DownIcon />
+                        <ShareIcon />
                     </div>
-                    <div></div>
+                </div>
+                <div className='w-100' style={{ margin: '1.5rem 0 5rem 0' }}>
+                    <CardRank
+                        data={data}
+                        classCard='card-item-chart'
+                        showMore={true}
+                    // showContent={showContent}
+                    // setShowContent={setShowContent}
+                    />
                 </div>
             </div>
         )
@@ -90,6 +157,7 @@ const ChartRankPage = () => {
             {currentTab === 0 && <Tabs data={subTabs} />}
             <Header />
             <BannerChart />
+            <RenderRankChart />
         </div>
     )
 }

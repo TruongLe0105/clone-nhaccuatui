@@ -9,6 +9,7 @@ import PlaylistDetailPage from '../pages/discover/playlist/PlaylistDetailPage';
 import PlaylistPage from '../pages/discover/playlist/PlaylistPage';
 import VideoPage from '../pages/discover/VideoPage';
 import HomePage from '../pages/HomePage';
+import Music4UPage from '../pages/music4U/Music4UPage';
 import ChartRankPage from '../pages/rank/ChartRankPage';
 import RankHundredPage from '../pages/rank/RankHundredPage';
 import SearchPage from '../pages/search/SearchPage';
@@ -31,6 +32,7 @@ const Router = () => {
                 <Route path='/playlist/:title' element={<PlaylistDetailPage />} />
                 <Route path='/playlist/tags' element={<PlaylistCollectionPage />} />
                 <Route path='/top100' element={<RankHundredPage />} />
+                <Route path='/discover/weekly' element={<Music4UPage />} />
             </Route>
         </Routes>
     )

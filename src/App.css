@@ -1911,10 +1911,11 @@ input::placeholder {
 
 .item-rank {
   background: var(--bg_input);
-  padding: 3px 1.5rem;
+  padding: 4px 1.5rem;
   width: 100%;
   margin-left: 1rem;
   border-radius: 4px;
+  overflow: hidden;
 }
 
 .item-rank:hover {
@@ -1933,9 +1934,8 @@ input::placeholder {
   display: block !important;
   font-size: 4.5rem !important;
   color: var(--cl_icon) !important;
-  right: 3rem;
-  top: 50%;
-  transform: translateY(-50%);
+  right: 5rem;
+  top: 8px;
   padding: 1rem;
 }
 
@@ -1985,6 +1985,7 @@ input::placeholder {
 }
 
 .flag {
+  min-width: 160px;
   width: 160px;
   height: 160px;
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -2018,6 +2019,8 @@ input::placeholder {
 
 .content-banner-chart {
   color: var(--cl_icon);
+  border-bottom: 1px solid var(--cl_border);
+  padding: 1.5rem 0;
 }
 
 .content-banner-chart>span>span {
@@ -2037,6 +2040,36 @@ input::placeholder {
 
 .content-banner-chart a:nth-child(2) {
   left: 2rem;
+}
+
+.content-rank-chart {
+  padding: var(--title_comp);
+}
+
+.card-item-chart {
+  margin: 0;
+  margin-bottom: 4px;
+}
+
+.options-song-rank {
+  left: calc(100% - 4.5rem);
+}
+
+.content-hidden-rank {
+  height: 0;
+  transition: height 0.3s linear;
+}
+
+.arrow-rank {
+  transition: transform 0.3s linear;
+}
+
+.active-card .arrow-rank {
+  transform: rotate(180deg);
+}
+
+.active-card .content-hidden-rank {
+  height: 6.5rem;
 }
 
 /* ICON GENERAL */

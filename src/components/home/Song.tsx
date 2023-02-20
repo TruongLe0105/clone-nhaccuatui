@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 import { data } from '../../jsons/songs';
 import { LinkSingers, LinkSong } from '../Link';

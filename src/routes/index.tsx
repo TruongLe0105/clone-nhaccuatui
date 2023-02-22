@@ -1,5 +1,6 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
+
 import { PATH } from '../helpers/constant';
 import MainLayout from '../layout/MainLayout';
 import ArtistPage from '../pages/discover/artist/ArtistPage';
@@ -17,6 +18,13 @@ import TopicDetailPage from '../pages/topic/TopicDetailPage';
 import TopicPage from '../pages/topic/TopicPage';
 
 const Router = () => {
+    const location = useLocation();
+    const path = location.pathname.split('/');
+
+    useEffect(() => {
+        console.log({ path })
+
+    }, [path])
     return (
         <Routes>
             <Route path="/" element={<MainLayout />} >

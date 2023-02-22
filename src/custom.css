@@ -81,10 +81,6 @@
     z-index: 999;
 }
 
-.z-9 {
-    z-index: 999;
-}
-
 .bg-fixed {
     background-color: rgba(0, 0, 0, .5);
 }

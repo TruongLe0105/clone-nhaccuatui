@@ -49,7 +49,7 @@ const NewRelease = ({ data }: any) => {
                 </div>
                 <div className='flex flex-col content-release'>
                     <span>{title}</span>
-                    <div className='flex flex-row' style={{ margin: '1rem 0' }}>
+                    <div className='flex flex-row align-center' style={{ margin: '1rem 0' }}>
                         <div className='flex align-center img-singers'>
                             {img_singer?.map((img: any, index: number) => (
                                 <a key={index} title={singer[index]} href='' className='flex align-center img-singer'>

@@ -1570,24 +1570,25 @@ input::placeholder {
   padding: 5rem 3.2rem 0 3.2rem;
 }
 
-.wrapper-artists>a {
+.wrapper-artists>div {
   width: 23%;
   margin: 1rem 0;
   text-align: center;
 }
 
-.wrapper-artists>a>a {
+.wrapper-artists>div>a {
   color: var(--cl_text);
   margin: 1rem;
 }
 
-.wrapper-artists>a>a:hover {
+.wrapper-artists>div>a:hover {
   color: var(--cl_hover);
 }
 
-.wrapper-artists>a>img {
+.wrapper-artists>div>img {
   border-radius: 50%;
   width: 100%;
+  cursor: pointer;
 }
 
 /* TOPIC PAGE */

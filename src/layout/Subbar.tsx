@@ -5,13 +5,10 @@ import SkipNextIcon from '@mui/icons-material/SkipNext';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import MoreOptions from '../components/MoreOptions';
-import PlayArrowIcon from '@mui/icons-material/PlayArrow';
-
 
 const Subbar = () => {
     const widthDevice = window.innerWidth;
     const barRef = useRef<any>();
-
 
     const [openOption, setOpenOption] = useState(false);
     const minibarRef = useRef<any>();

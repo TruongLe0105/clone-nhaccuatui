@@ -8,22 +8,25 @@ import BarChartIcon from '@mui/icons-material/BarChart';
 import InterestsIcon from '@mui/icons-material/Interests';
 
 export interface ItemMenu {
-    // path: string;
+    path?: string;
     key: string;
     label: string;
     icon: any;
-    childrens?: string[];
+    childrens?: {
+        title: string;
+        route: string;
+    }[];
 }
 
 export const listMenu: ItemMenu[] = [
     {
-        // path: PATH.search,
+        path: PATH.search,
         key: "search",
         label: "Tìm Kiếm",
         icon: SearchIcon
     },
     {
-        // path: PATH.home,
+        path: PATH.home,
         key: "home",
         label: "Trang Chủ",
         icon: HomeIcon
@@ -32,24 +35,54 @@ export const listMenu: ItemMenu[] = [
         // path: PATH.discover,
         key: "discover",
         label: "Khám Phá",
-        childrens: ["Bài Hát", "Playlist", "Video", "Nghệ Sĩ"],
+        childrens: [
+            {
+                title: "Bài Hát",
+                route: PATH.discover.song,
+            },
+            {
+                title: "Playlist",
+                route: PATH.discover.playlist,
+            },
+            {
+                title: "Video",
+                route: PATH.discover.video,
+            },
+            {
+                title: "Nghệ Sĩ",
+                route: PATH.discover.artist
+            }
+        ],
         icon: ExploreIcon
     },
     {
         // path: PATH.listen,
         key: "listen",
         label: "Nghe Gì Hôm Nay",
-        childrens: ["Chủ Đề", "Tuyển Tập", "Top100"],
+        childrens: [
+            {
+                title: "Chủ Đề",
+                route: PATH.topic
+            },
+            {
+                title: "Tuyển Tập",
+                route: PATH.collection
+            },
+            {
+                title: "Top 100",
+                route: PATH.top100
+            }
+        ],
         icon: EarbudsBatteryIcon
     },
     {
-        // path: PATH.chart,
+        path: PATH.chart,
         key: "chart",
         label: "Bảng Xếp Hạng",
         icon: BarChartIcon
     },
     {
-        // path: PATH.orther,
+        path: PATH.orther,
         key: "orther",
         label: "Music 4U",
         icon: InterestsIcon

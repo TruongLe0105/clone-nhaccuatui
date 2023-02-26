@@ -42,10 +42,10 @@ const ArtistPage = () => {
         return (
             <div className='flex justify-between align-center wrapper-artists'>
                 {data.map((el: any, index: number) => (
-                    <a href='' key={index} className='flex flex-col'>
+                    <div key={index} className='flex flex-col'>
                         <img src={el.img} alt={el.singer} />
                         <a href='' title={el.singer}>{el.singer}</a>
-                    </a>
+                    </div>
                 ))}
             </div>
         )

@@ -7,25 +7,42 @@ import { ItemMenu, listMenu } from './types';
 import { images } from '../helpers/images';
 import LoginForm from '../components/forms/LoginForm';
 import RegisterForm from '../components/forms/RegisterForm';
+import useAppContext from '../hooks/useAppContext';
+import { useNavigate } from 'react-router-dom';
 
 const Mainbar = () => {
-    const [active, setActive] = useState<number>(2);
+    // const [active, setActive] = useState<number>(2);
+    // const [activeInside, setActiveInside] = useState<string>();
+
     const [rendered, setRendered] = useState(false);
     const [openFormLogin, setOpenFormLogin] = useState(false);
     const [openFormRegister, setOpenFormRegister] = useState(false);
 
+    const navigate = useNavigate();
+
+    const {
+        activeMenu,
+        activeInside,
+        setActiveInside
+    } = useAppContext();
+
     const { logo } = images;
 
     const handleMenuPage = (item: ItemMenu, index: number) => {
-        setActive(index);
         if (item.childrens) {
             const childNode = document.getElementById(`child${index}`);
             const arrowNode = document.getElementById(`arrow-expand-${index}`);
 
             arrowNode?.classList.toggle('rotate-arrow');
             index === 2 ? childNode?.classList.toggle('show-childs-second') : childNode?.classList.toggle('show-childs-third');
+        } else {
+            item.path && navigate(item.path);
         }
     };
+
+    const clickMenuInside = (item: any) => {
+        navigate(item.route);
+    }
 
     const renderIconMenu = (item: ItemMenu) => {
         const Icon = item.icon;
@@ -88,11 +105,11 @@ const Mainbar = () => {
                         onClick={() => handleMenuPage(item, index)}
                         className='flex align-center item-menu'
                         style={{
-                            background: active === index ? 'rgba(244,246,248,0.05)' : '',
+                            background: activeMenu === index ? 'rgba(244,246,248,0.05)' : '',
                         }}
                     >
                         <div
-                            className={`${active === index ?
+                            className={`${activeMenu === index ?
                                 'border-menu' :
                                 'border-hover'
                                 }`}
@@ -113,10 +130,12 @@ const Mainbar = () => {
                             id={`child${index}`}
                             className='childrens-item-menu'
                         >
-                            {item.childrens.map((item: string, index: number) => (
-                                <div className='flex align-center children-item' key={index}>
-                                    <div className='doc-symbol' />
-                                    {item}
+                            {item.childrens.map((item: any, index: number) => (
+                                <div className='flex align-center children-item' key={index} onClick={() => clickMenuInside(item)}>
+                                    <div className='doc-symbol'
+                                        style={{ opacity: activeInside === item.route ? 1 : '' }}
+                                    />
+                                    {item.title}
                                 </div>
                             ))}
                         </div>

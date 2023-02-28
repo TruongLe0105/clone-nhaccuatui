@@ -9,7 +9,7 @@ const TopicPage = () => {
                 <h2 style={{
                     padding: 'var(--title_comp)'
                 }}>Tổng Hợp Topic</h2>
-                <div className='wrapper-topic'>
+                <div className='wrapper-topic-page'>
                     {data.map((topic: any, index: number) => (
                         <div key={index} className='pointer topic-item'>
                             <img src={topic.img} alt='img' />

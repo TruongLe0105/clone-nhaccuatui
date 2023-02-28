@@ -1,7 +1,12 @@
-import React from 'react'
-import ButtonDefault from '../../components/ButtonDefault'
+import { useState } from 'react';
+
+import ButtonDefault from '../../components/ButtonDefault';
+import LoginForm from '../../components/forms/LoginForm';
+import useAppContext from '../../hooks/useAppContext';
 
 const Music4UPage = () => {
+    const { setOpenFormLogin } = useAppContext();
+
     return (
         <div
             className='flex'
@@ -24,10 +29,12 @@ const Music4UPage = () => {
             <div>
                 <span>Playlist: <span>Music 4U</span></span>
                 <p>Đăng nhập ngay để khám phá những ca khúc hay nhất được chọn lọc dành riêng cho bạn.</p>
-                <ButtonDefault
-                    title='Đăng nhập ngay'
-                    buttonClass='pointer button-rank'
-                />
+                <div onClick={() => setOpenFormLogin(true)}>
+                    <ButtonDefault
+                        title='Đăng nhập ngay'
+                        buttonClass='pointer button-rank'
+                    />
+                </div>
             </div>
         </div>
     )

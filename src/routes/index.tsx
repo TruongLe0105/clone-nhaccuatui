@@ -19,8 +19,10 @@ import TopicDetailPage from '../pages/topic/TopicDetailPage';
 import TopicPage from '../pages/topic/TopicPage';
 
 const Router = () => {
-    const [activeMenu, setActiveMenu] = useState(1);
+    const [activeMenu, setActiveMenu] = useState<number>();
     const [activeInside, setActiveInside] = useState<string>();
+    const [openFormLogin, setOpenFormLogin] = useState(false);
+    const [openFormRegister, setOpenFormRegister] = useState(false);
 
     const location = useLocation();
     const path = location.pathname;
@@ -32,10 +34,25 @@ const Router = () => {
             case search:
                 setActiveMenu(0);
                 break;
-            case discover.song || discover.playlist || discover.video || discover.artist:
+            case discover.song:
                 setActiveMenu(2);
                 break;
-            case topic || collection || top100:
+            case discover.playlist:
+                setActiveMenu(2);
+                break;
+            case discover.video:
+                setActiveMenu(2);
+                break;
+            case discover.artist:
+                setActiveMenu(2);
+                break;
+            case topic:
+                setActiveMenu(3);
+                break;
+            case collection:
+                setActiveMenu(3);
+                break;
+            case top100:
                 setActiveMenu(3);
                 break;
             case chart:
@@ -53,12 +70,17 @@ const Router = () => {
         checkPath();
     }, [path]);
 
+
     return (
         <AppContext.Provider
             value={{
                 activeMenu,
                 activeInside,
-                setActiveInside
+                setActiveInside,
+                openFormLogin,
+                setOpenFormLogin,
+                openFormRegister,
+                setOpenFormRegister,
             }}
         >
             <Routes>

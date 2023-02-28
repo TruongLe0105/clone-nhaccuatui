@@ -15,15 +15,16 @@ const Mainbar = () => {
     // const [activeInside, setActiveInside] = useState<string>();
 
     const [rendered, setRendered] = useState(false);
-    const [openFormLogin, setOpenFormLogin] = useState(false);
-    const [openFormRegister, setOpenFormRegister] = useState(false);
 
     const navigate = useNavigate();
 
     const {
         activeMenu,
         activeInside,
-        setActiveInside
+        openFormLogin,
+        setOpenFormLogin,
+        openFormRegister,
+        setOpenFormRegister,
     } = useAppContext();
 
     const { logo } = images;
